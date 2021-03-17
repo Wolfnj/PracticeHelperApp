@@ -1,4 +1,4 @@
-package com.example.practicehelperapp.ui.dashboard
+package com.example.practicehelperapp.ui.notes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.practicehelperapp.R
 
-class DashboardFragment : Fragment() {
+class NotesFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var notesViewModel: NotesViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        notesViewModel =
+                ViewModelProvider(this).get(NotesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_notes, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notes)
+        notesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
